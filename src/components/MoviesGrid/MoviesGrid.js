@@ -15,7 +15,6 @@ function MoviesGrid(props) {
   const [selectedMovieId, setSelectedMovieId] = React.useState(null)
 
   React.useEffect(() => {
-
     fetchMovies().then(
       data => {
         setMovieData({status: 'resolved', movies: data.movies})
