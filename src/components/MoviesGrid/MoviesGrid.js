@@ -2,10 +2,31 @@ import './MoviesGrid.css'
 import React from 'react'
 import Movie from '../Movie/Movie'
 import MovieDetails from '../MovieDetails/MovieDetails'
+import fetchMovies from '../../api/rancid-tomatillos'
 
-function MoviesGrid({ movieData }) {
+function MoviesGrid(props) {
+  const [movieData, setMovieData] = React.useState({
+    status: 'idle',
+    error: null,
+    movies: []
+  })
+
   const [showDetails, setShowDetails] = React.useState(false)
   const [selectedMovieId, setSelectedMovieId] = React.useState(null)
+
+  React.useEffect(() => {
+
+    fetchMovies().then(
+      data => {
+        setMovieData({status: 'resolved', movies: data.movies})
+      },
+      error => {
+        setMovieData({status: 'rejected', error})
+      }
+    )
+  }, [])
+
+  console.log(movieData)
 
   const allMovies = movieData.movies.map(movie => {
     return (
@@ -22,7 +43,7 @@ function MoviesGrid({ movieData }) {
   const selectedMovie = movieData.movies.find( ({ id }) => id === selectedMovieId)
 
   return (
-    <div className="movies-container">
+    <div>
       {showDetails
         ? <MovieDetails
             title={selectedMovie.title}

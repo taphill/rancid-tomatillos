@@ -26,8 +26,8 @@ function MovieDetails(props) {
       <div className="movie-details">
         <img src={props.backdropPath} alt="" />
         <h2>{props.title}</h2>
-        <h2>{formatRating()}</h2>
-        <h2>{formatDate()}</h2>
+        <h2>Released: {formatDate()}</h2>
+        <h2>Rating: {formatRating()}</h2>
       </div>
       <button className="back-button" onClick={goBack}>Go Back</button>
     </>

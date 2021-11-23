@@ -3,4 +3,3 @@ export default function Ordinal(n) {
   let v = n%100
   return n + (s[(v-20)%10] || s[v] || s[0])
 }
-
