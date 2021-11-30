@@ -1,12 +1,11 @@
+import { Outlet } from "react-router-dom"
 import './App.css'
-import movieData from './movieData'
-import MoviesGrid from './components/MoviesGrid/MoviesGrid'
 
 function App() {
   return (
     <div className="App">
       <h1>Rancid Tomatillos</h1>
-      <MoviesGrid movieData={movieData}/>
+      <Outlet />
     </div>
   )
 }
