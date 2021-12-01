@@ -3,7 +3,7 @@ import './MoviesGrid.css'
 import Movie from '../Movie/Movie'
 import fetchMovies from '../../api/rancid-tomatillos'
 
-function MoviesGrid(props) {
+function MoviesGrid () {
   const [movieData, setMovieData] = React.useState({
     status: 'idle',
     error: null,
@@ -13,10 +13,10 @@ function MoviesGrid(props) {
   React.useEffect(() => {
     fetchMovies().then(
       data => {
-        setMovieData({status: 'resolved', movies: data.movies})
+        setMovieData({ status: 'resolved', movies: data.movies })
       },
       error => {
-        setMovieData({status: 'rejected', error})
+        setMovieData({ status: 'rejected', error })
       }
     )
   }, [])

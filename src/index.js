@@ -1,18 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter, Routes, Route } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 import App from './App'
 import MoviesGrid from './components/MoviesGrid/MoviesGrid'
 import MovieDetails from './components/MovieDetails/MovieDetails'
-import movieData from './movieData'
 import reportWebVitals from './reportWebVitals'
 
 ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
-        <Route index element={<MoviesGrid movieData={movieData} />} />
+        {/* <Route index element={<MoviesGrid movieData={movieData} />} /> */}
+        <Route index element={<MoviesGrid />} />
         <Route path=":movieId" element={<MovieDetails />} />
       </Route>
     </Routes>

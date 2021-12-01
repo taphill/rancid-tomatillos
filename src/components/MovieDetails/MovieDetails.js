@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import './MovieDetails.css'
 import Ordinal from '../../utils/utils'
 
-function MovieDetails(props) {
+function MovieDetails () {
   const data = useLocation().state.movieData
 
   const formatRating = () => {
