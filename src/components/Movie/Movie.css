@@ -1,4 +1,5 @@
 .movie {
+  width: 25%;
   border: 0.2rem solid black;
   padding: 0.5rem;
   cursor: pointer;

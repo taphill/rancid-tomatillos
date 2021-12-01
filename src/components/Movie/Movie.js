@@ -9,7 +9,7 @@ function Movie(props) {
       state={{ movieData: {...props} }}
       className="movie"
     >
-      <img src={props.posterPath} alt="" id={props.id} />
+      <img src={props.posterPath} alt="" />
     </Link>
   )
 }
