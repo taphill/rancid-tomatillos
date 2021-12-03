@@ -11,7 +11,6 @@ ReactDOM.render(
   <BrowserRouter>
     <Routes>
       <Route path="/" element={<App />}>
-        {/* <Route index element={<MoviesGrid movieData={movieData} />} /> */}
         <Route index element={<MoviesGrid />} />
         <Route path=":movieId" element={<MovieDetails />} />
       </Route>
