@@ -1,9 +1,10 @@
 import React from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import './MovieDetails.css'
 import Ordinal from '../../utils/utils'
 
 function MovieDetails () {
+  const navigate = useNavigate()
   const data = useLocation().state.movieData
 
   const formatRating = () => {
@@ -19,6 +20,10 @@ function MovieDetails () {
     return `${month} ${day}, ${year}`
   }
 
+  const goBack = () => {
+    navigate('/')
+  }
+
   return (
     <>
       <div className="movie-details">
@@ -27,11 +32,9 @@ function MovieDetails () {
         <h2>Released: {formatDate()}</h2>
         <h2>Rating: {formatRating()}</h2>
       </div>
-      <Link to="/">
-        <button className="back-button">
-          Go Back
-        </button>
-      </Link>
+      <button className="back-button" onClick={goBack}>
+        Go Back
+      </button>
     </>
   )
 }

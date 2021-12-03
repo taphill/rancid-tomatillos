@@ -1,17 +1,25 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import './Movie.css'
 
 function Movie (props) {
+  const navigate = useNavigate()
+
+  const showDetails = () => {
+    navigate(
+      `/${props.id}`,
+      { state: { movieData: { ...props } } }
+    )
+  }
+
   return (
-    <Link
-      to={`/${props.id}`}
-      state={{ movieData: { ...props } }}
+    <img
       className="movie"
-    >
-      <img src={props.posterPath} alt="" />
-    </Link>
+      onClick={showDetails}
+      src={props.posterPath}
+      alt=""
+    />
   )
 }
 
